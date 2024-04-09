@@ -1,0 +1,92 @@
+[
+  {
+    "grade": -5,
+    "title": "Jacob Mitchell",
+    "emoji": "🙉🙈🙊",
+    "href": "jobs/jm.html"
+  },
+  {
+    "grade": -3,
+    "title": "Faz-Wiper",
+    "emoji": "🎩🐻🧻",
+    "href": "games/fazwipe/"
+  },
+  {
+    "grade": -2,
+    "title": "The Creator Divine",
+    "emoji": "😇🪽",
+    "href": "games/lse.html"
+  },
+  {
+    "grade": -1,
+    "title": "(Get a job!) Hobo",
+    "emoji": "🤒",
+    "href": "/gamblr/upg.html"
+  },
+  {
+    "grade": 0,
+    "title": "Work Inc.",
+    "emoji": "📄",
+    "href": "jobs/work.html"
+  },
+  {
+    "grade": 1,
+    "title": "Tech Support Co.",
+    "emoji": "💻",
+    "href": "jobs/tsco.html"
+  },
+  {
+    "grade": 2,
+    "title": "Mechanic",
+    "emoji": "🧰",
+    "href": "jobs/mechanic.html"
+  },
+  {
+    "grade": 3,
+    "title": "Amazong Inc.",
+    "emoji": "📦",
+    "href": "jobs/amazong.html"
+  },
+  {
+    "grade": 4,
+    "title": "Car Dealer",
+    "emoji": "🏢🚗",
+    "href": "jobs/cardealer.html"
+  },
+  {
+    "grade": 5,
+    "title": "Michaelsoft Corp.",
+    "emoji": "💻",
+    "href": "jobs/michaelsoft.html"
+  },
+  {
+    "grade": 6,
+    "title": "Michaelsoft Repairman",
+    "emoji": "💻🛠️",
+    "href": "jobs/michaelsoft.html"
+  },
+  {
+    "grade": 7,
+    "title": "Michaelsoft IT",
+    "emoji": "💻🐛",
+    "href": "jobs/michaelsoft.html"
+  },
+  {
+    "grade": 8,
+    "title": "Michaelsoft CEO",
+    "emoji": "💻🤵",
+    "href": "jobs/michaelsoft.html"
+  },
+  {
+    "grade": 9,
+    "title": "Senator",
+    "emoji": "💼🤵",
+    "href": "jobs/whitehouse.html"
+  },
+  {
+    "grade": 10,
+    "title": "President",
+    "emoji": "🇺🇸🤵",
+    "href": "jobs/whitehouse.html"
+  }
+]

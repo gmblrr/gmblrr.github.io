@@ -1,0 +1,315 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMBLR - Shop</title>
+    <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+    <meta content="GAMBLR - Shop" property="og:title" />
+    <meta content="purchase the chick-fil-a company, or a gorilla, or an illegal money printer. we sell everything." property="og:description" />
+    <meta content="https://gloabe.github.io/gamblr/" property="og:url" />
+    <meta content="https://gloabe.github.io/gamblr/icon.png" property="og:image" />
+    <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 8px;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .category-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .category-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .category {
+        flex: 1 0 45%;
+        /* Adjusted */
+        margin: 0 7px;
+      }
+
+      .category-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .category-title {
+        margin-bottom: 1px;
+        /* Reduced margin */
+      }
+
+      .tile {
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .tile:hover {
+        transform: translateY(-5px);
+      }
+
+      .tile a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .tile button {
+        background-color: #4CAF50;
+        /* Green background */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        /* Rounded corners */
+        cursor: pointer;
+      }
+
+      .tile button:hover {
+        background-color: #45a049;
+        /* Darker green on hover */
+      }
+
+      .tile button.sell-button {
+        background-color: #FF6347;
+        /* Red background */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        /* Rounded corners */
+        cursor: pointer;
+      }
+
+      .tile button.sell-button:hover {
+        background-color: #CD5C5C;
+        /* Darker red on hover */
+      }
+
+      .emoji {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .name {
+        font-size: 1em;
+        margin-bottom: 5px;
+      }
+
+      .price {
+        font-size: 0.8em;
+        margin-top: 5px;
+      }
+
+      .footer {
+        background-color: #f5f5f5;
+        padding: 10px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .footer a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <style type="text/css" id="operaUserStyle"></style>
+  </head>
+  <body>
+    <h1>🛒 GAMBLR Shop</h1>
+    <div id="cashDisplay">$ ???</div>
+    <div class="category-container" id="shopContainer">
+      <div class="category" id="printersContainer">
+        <h2 class="category-title">Printers</h2>
+        <div class="category-items" id="printersItems"></div>
+      </div>
+    </div>
+    <div class="category-container">
+      <div class="category" id="carsContainer">
+        <h2 class="category-title">Other</h2>
+        <div class="category-items" id="carsItems"></div>
+      </div>
+    </div>
+    <div class="footer"> Done shopping? Go <a href="/gamblr/">home</a>! </div>
+    <script>
+      let workgrade = localStorage.getItem('workgrade')
+      if (!(workgrade >= 7)) {
+        window.location.href = "/gamblr/"
+      } else {
+        const items = [{
+          category: 'Printers',
+          name: 'Money Printer Lv. 1',
+          emoji: '🖨️',
+          price: 50000
+        }, {
+          category: 'Printers',
+          name: 'Money Printer Lv. 2',
+          emoji: '💰🖨️',
+          price: 100000
+        }, {
+          category: 'Printers',
+          name: 'Money Printer Lv. 3',
+          emoji: '💰💰🖨️💰',
+          price: 750000
+        }, {
+          category: 'Other',
+          name: 'Gorilla',
+          emoji: '🦍',
+          price: 92000
+        }, {
+          category: 'Other',
+          name: 'Lamborghini',
+          emoji: '🚜',
+          price: 350000
+        }, {
+          category: 'Other',
+          name: 'Ferrari',
+          emoji: '🏎️',
+          price: 2500000
+        }, {
+          category: 'Other',
+          name: 'Bugatti',
+          emoji: '🏎️',
+          price: 5500000
+        }, {
+          category: 'Other',
+          name: 'Lykan Hypersport',
+          emoji: '🏎️',
+          price: 15700000
+        }, {
+          category: 'Other',
+          name: "The Chick-Fil-A' Company",
+          emoji: '🍽️🍗',
+          price: 2250000000
+        }, {
+          category: 'Other',
+          name: "SpaceX",
+          emoji: '🚀🧠',
+          price: 23966600001
+        }, {
+          category: 'Other',
+          name: "The N-Word Pass",
+          emoji: '🃏',
+          price: 999999999999999
+        }];
+        function isItemOwned(item) {
+          if (item.category === 'Printers') {
+            const printerLevel = parseInt(localStorage.getItem('printer')) || 0;
+            return printerLevel >= items.indexOf(item) + 1;
+          } else {
+            const itemName = item.name;
+            return localStorage.getItem(itemName) === '1';
+          }
+        }
+        function displayShop() {
+          const printersContainer = document.getElementById('printersItems');
+          const carsContainer = document.getElementById('carsItems');
+          // Clear existing items
+          printersContainer.innerHTML = '';
+          carsContainer.innerHTML = '';
+          // Display items in respective categories
+          items.forEach(item => {
+            const tile = document.createElement('div');
+            tile.className = 'tile';
+            const emojiDiv = document.createElement('div');
+            emojiDiv.className = 'emoji';
+            emojiDiv.textContent = item.emoji;
+            tile.appendChild(emojiDiv);
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'name';
+            nameDiv.textContent = item.name;
+            tile.appendChild(nameDiv);
+            const priceDiv = document.createElement('div');
+            priceDiv.className = 'price';
+            priceDiv.textContent = isItemOwned(item) ? 'Owned' : '$' + item.price.toLocaleString();
+            tile.appendChild(priceDiv);
+            if (!isItemOwned(item)) {
+              const button = document.createElement('button');
+              button.textContent = 'Buy';
+              button.addEventListener('click', () => buyItem(item));
+              tile.appendChild(button);
+            } else if (item.category !== 'Printers') {
+              const sellPrice = Math.floor(item.price * 0.9);
+              const button = document.createElement('button');
+              button.textContent = 'Sell ($' + sellPrice.toLocaleString() + ')'; // Sell price formatted with commas and dollar sign
+              button.className = 'sell-button'; // Add class for styling
+              button.addEventListener('click', () => sellItem(item));
+              tile.appendChild(button);
+            }
+            const container = item.category === 'Printers' ? printersContainer : carsContainer;
+            container.appendChild(tile);
+          });
+        }
+        window.onload = function() {
+          displayShop();
+          const initialCash = parseFloat(localStorage.getItem('cash')) || 0;
+          updateCashDisplay(initialCash);
+        };
+        function updateCashDisplay(cash) {
+          const cashDisplay = document.getElementById('cashDisplay');
+          cashDisplay.textContent = '$' + cash.toLocaleString();
+        }
+        function buyItem(item) {
+          const userCash = parseFloat(localStorage.getItem('cash')) || 0;
+          if (userCash >= item.price) {
+            if (item.category === 'Printers') {
+              const printerLevel = items.indexOf(item) + 1;
+              localStorage.setItem('cash', userCash - item.price);
+              localStorage.setItem('printer', printerLevel); // Update printer level
+            } else {
+              localStorage.setItem('cash', userCash - item.price);
+              localStorage.setItem(item.name, 1); // Mark item as owned
+            }
+            updateCashDisplay(userCash - item.price);
+            displayShop();
+          } else {
+            alert('Not enough cash!');
+          }
+        }
+        function sellItem(item) {
+          const userCash = parseFloat(localStorage.getItem('cash')) || 0;
+          const sellPrice = item.price * 0.9; // Sell for 90% of original price
+          localStorage.setItem('cash', userCash + sellPrice);
+          localStorage.setItem(item.name, 0); // Mark item as not owned
+          updateCashDisplay(userCash + sellPrice);
+          displayShop();
+        }
+      }
+    </script>
+  </body>
+</html>

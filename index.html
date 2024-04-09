@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMBLR</title>
+  <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+  <link rel="stylesheet" href="/gamblr/css/gamblr.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4024511724963483" crossorigin="anonymous"></script>
+  <meta content="GAMBLR - Home" property="og:title" />
+  <meta content="the worlds best middle schooler made gambling site" property="og:description" />
+  <meta content="https://gloabe.github.io/gamblr/" property="og:url" />
+  <meta content="https://gloabe.github.io/gamblr/icon.png" property="og:image" />
+  <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  var cashDisplay = document.querySelector('.cash-display');
+  var response = await fetch('jobs/workgrades.json');
+  var workgrades = await response.json();
+  var workgrade = localStorage.getItem('workgrade');
+  var gorilla = localStorage.getItem('Gorilla');
+  var printer = localStorage.getItem('printer');
+  var cash = localStorage.getItem('cash');
+    // stop this is so ugly whyyyy ughhhh ^^^^^^
+  if (cash && workgrade) {
+    var formattedCash = parseFloat(cash).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    cashDisplay.textContent = '$' + formattedCash; // Add dollar sign
+  } else {
+    localStorage.setItem('cash', 0);
+    localStorage.setItem('workgrade', -1);
+    workgrade = -1; 
+    window.location.reload();
+  }
+
+  var jobTile = document.querySelector('.tile:nth-child(3) .name');
+  var jobEmoji = document.querySelector('.tile:nth-child(3) .emoji');
+  var jobHref = document.querySelector('.tile:nth-child(3) a');
+
+  var jobInfo = workgrades.find(job => job.grade === parseInt(workgrade));
+
+  if (jobInfo) {
+    jobTile.textContent = jobInfo.title;
+    jobEmoji.textContent = jobInfo.emoji;
+    jobHref.setAttribute('href', jobInfo.href);
+
+if (parseInt(printer) > 0) {
+  var printerTile = document.createElement('div');
+  printerTile.classList.add('tile');
+  var printerLink = document.createElement('a');
+  printerLink.setAttribute('href', 'printer.html');
+  var printerEmoji = document.createElement('div');
+  printerEmoji.classList.add('emoji');
+  printerEmoji.textContent = '💰🖨️';
+  var printerName = document.createElement('div');
+  printerName.classList.add('name');
+  printerName.textContent = 'Money Printer';
+  printerLink.appendChild(printerEmoji);
+  printerLink.appendChild(printerName);
+  printerTile.appendChild(printerLink);
+  var workgradeTile = document.querySelector('.tile:nth-child(3)'); // Change to 3rd tile
+  workgradeTile.parentNode.insertBefore(printerTile, workgradeTile);
+}
+
+if (parseInt(workgrade) >= 5) {
+  var investTile = document.createElement('div');
+  investTile.classList.add('tile');
+  var investLink = document.createElement('a');
+  investLink.setAttribute('href', 'games/investor/');
+  var investEmoji = document.createElement('div');
+  investEmoji.classList.add('emoji');
+  investEmoji.textContent = '📈';
+  var investName = document.createElement('div');
+  investName.classList.add('name');
+  investName.textContent = 'Invest';
+  investLink.appendChild(investEmoji);
+  investLink.appendChild(investName);
+  investTile.appendChild(investLink);
+
+  // Insert after the money printer tile
+  var workgradeTile = document.querySelector('.tile:nth-child(3)'); // Change to 3rd tile
+  workgradeTile.parentNode.insertBefore(investTile, workgradeTile.nextSibling);
+}
+
+if (parseInt(workgrade) >= 7) {
+  var shopTile = document.createElement('div');
+  shopTile.classList.add('tile');
+  var shopLink = document.createElement('a');
+  shopLink.setAttribute('href', 'shop.html');
+  var shopEmoji = document.createElement('div');
+  shopEmoji.classList.add('emoji');
+  shopEmoji.textContent = '🏪';
+  var shopName = document.createElement('div');
+  shopName.classList.add('name');
+  shopName.textContent = 'Shop';
+  shopLink.appendChild(shopEmoji);
+  shopLink.appendChild(shopName);
+  shopTile.appendChild(shopLink);
+  var fanartTile = document.querySelector('.tile:nth-child(1)');
+  fanartTile.parentNode.insertBefore(shopTile, fanartTile.nextSibling);
+}
+
+if (parseInt(gorilla) >= 1) {
+  var gorillaTile = document.createElement('div');
+  gorillaTile.classList.add('tile');
+  var gorillaLink = document.createElement('a');
+  gorillaLink.setAttribute('href', 'pet.html');
+  var gorillaEmoji = document.createElement('div');
+  gorillaEmoji.classList.add('emoji');
+  gorillaEmoji.textContent = '🦍';
+  var gorillaName = document.createElement('div');
+  gorillaName.classList.add('name');
+  gorillaName.textContent = 'Pet Gorilla';
+  gorillaLink.appendChild(gorillaEmoji);
+  gorillaLink.appendChild(gorillaName);
+  gorillaTile.appendChild(gorillaLink);
+  var slotsTile = document.querySelector('.tile:nth-child(4)'); // Change to 3rd tile
+  slotsTile.parentNode.insertBefore(gorillaTile, slotsTile.nextSibling);
+ }
+} 
+});
+
+var sequence = '';
+var targetSequence = 'lse';
+var redirectUrl = 'js/admin.html';
+
+document.addEventListener('keydown', function (event) {
+  var keyPressed = String.fromCharCode(event.keyCode);
+  keyPressed = keyPressed.toLowerCase();
+  sequence += keyPressed;
+  if (sequence === targetSequence) {
+    window.location.href = redirectUrl;
+    sequence = '';
+  } else if (!targetSequence.startsWith(sequence)) {
+    sequence = '';
+  }
+});
+</script>
+<body>
+  <h1>GAMBLR</h1>
+  <div class="cash-display">$</div>
+  <div class="tile-container">
+    <div class="tile">
+      <a href="/gamblr/fanart.html">
+        <div class="emoji">🖼️</div>
+        <div class="name">Fan-Art</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="upg.html">
+        <div class="emoji">🏢</div>
+        <div class="name">Workgrade</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="/gamblr/">
+        <div class="emoji">❓❓</div>
+        <div class="name">Unknown</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="games/slots/">
+        <div class="emoji">🎰</div>
+        <div class="name">Slots</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="games/crash/">
+        <div class="emoji">🚀💥</div>
+        <div class="name">Crash</div>
+      </a>
+    </div>
+  </div>
+  <footer>
+        GAMBLR© 2024 - Developed by Nathan Symonds, with contribution from Isaac Kling.<br>Note:Jacob Mitchell is a monkey.
+  </footer>
+</body>
+</html>

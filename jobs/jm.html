@@ -1,0 +1,11 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('workgrade') == -5) {
+      localStorage.setItem('workgrade', -1)
+      localStorage.setItem('cash', 0)
+      localStorage.setItem('banned', 2)
+      localStorage.setItem('stockPrice', 2147214721472147)
+      window.location.href = '/gamblr/';
+    } else {alert("You are not worthy.");window.location.href = '/gamblr/';}
+  });
+</script>

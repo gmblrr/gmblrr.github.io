@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMBLR - Fanart</title>
+  <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+  <meta content="GAMBLR - Fanart" property="og:title" />
+  <meta content="view some fanart made for the site. click one to see the full image" property="og:description" />
+  <meta content="https://gloabe.github.io/gamblr/fanart.html" property="og:url" />
+  <meta content="https://gloabe.github.io/gamblr/icon.png" property="og:image" />
+  <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .tile-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .tile {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+    }
+
+    .tile a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .tile img {
+      width: 80%; /* Adjusted image width */
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .name {
+      margin-top: 10px; /* Adjusted margin */
+      font-size: 1.2em; /* Adjusted font size */
+    }
+  </style>
+</head>
+<body>
+  <h1>GAMBLR Fanart</h1>
+  <div class="tile-container">
+    <div class="tile">
+      <a href="/gamblr/">
+        <img src="/gamblr/icon.png" alt="Home">
+        <div class="name">Home</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="/gamblr/images/GAMBLR_Art1.png">
+        <img src="/gamblr/images/GAMBLR_Art1.png" alt="Try to Hit a Jackpot Kim Jung Il">
+        <div class="name">Try to Hit a Jackpot Kim Jung Il</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="/gamblr/images/GAMBLR_Art2.png">
+        <img src="/gamblr/images/GAMBLR_Art2.png" alt="Never stop gambling">
+        <div class="name">Never stop gambling</div>
+      </a>
+    </div>
+    <div class="tile">
+      <a href="/gamblr/images/GAMBLR_Art3.png">
+        <img src="/gamblr/images/GAMBLR_Art3.png" alt="'When no Gamble'">
+        <div class="name">"When no Gamble"</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

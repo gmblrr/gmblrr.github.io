@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMBLR - Locked</title>
+  <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+  <script src="node_modules/eruda/eruda.js"></script>
+  <script>eruda.init();</script>
+  <style>
+    /* Base styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Login screen styles */
+    .login-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .login-box {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .login-box input[type="password"] {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 8px;
+      width: calc(100% - 18px);
+      /* Adjusted width to account for padding and border */
+      margin-bottom: 10px;
+    }
+
+    .login-box button {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Content styles */
+    #contentContainer {
+      display: none;
+    }
+
+    #keyValueList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    li span {
+      display: inline-block;
+      width: 60%;
+      margin-right: 10px;
+      /* Add some space between the key-value pair and the buttons */
+    }
+
+    li button {
+      margin-left: 10px;
+      /* Add some space between the buttons */
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .homeBtn {
+      background-color: #4CAF50;
+      /* Green */
+      color: white;
+    }
+
+    .homeBtn:hover {
+      background-color: #45a049;
+    }
+
+    .editBtn {
+      background-color: #4CAF50;
+      /* Green */
+      color: white;
+    }
+
+    .editBtn:hover {
+      background-color: #45a049;
+    }
+
+    .saveBtn {
+      background-color: #007bff;
+      /* Blue */
+      color: white;
+    }
+
+    .saveBtn:hover {
+      background-color: #0056b3;
+    }
+
+    .resetBtn {
+      background-color: #e74c3c;
+      /* Red */
+      color: white;
+    }
+
+    .resetBtn:hover {
+      background-color: #c0392b;
+    }
+
+    .removeBtn {
+      background-color: #e74c3c;
+      /* Red */
+      color: white;
+    }
+
+    .removeBtn:hover {
+      background-color: #c0392b;
+    }
+
+    .createBtn {
+      background-color: #007bff;
+      /* Blue */
+      color: white;
+    }
+
+    .createBtn:hover {
+      background-color: #0056b3;
+    }
+
+    .dialogContainer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dialogBox {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .dialogBox input[type="text"],
+    .dialogBox button {
+      display: block;
+      width: calc(100% - 18px);
+      /* Adjusted width to account for padding and border */
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container" id="loginContainer">
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="password" id="passwordInput" placeholder="Enter password">
+      <button onclick="authenticate()">Submit</button>
+    </div>
+  </div>
+  <div class="container" id="contentContainer">
+    <h2 id="pageTitle">GAMBLR Data</h2>
+    <p>This page allows you to edit all of your GAMBLR Data.<br>If you can see this, you've been given the password, or you just let yourself in.<br>Scroll down for more information.</p>
+    <ul id="keyValueList"></ul>
+    <button class="homeBtn" onclick="goHome()">Home</button>
+    <button class="resetBtn" onclick="resetLocalStorage()">Reset All Data</button>
+    <button class="createBtn" onclick="showDialog()">Create Key-Value Pair</button>
+    <p>
+      <br><b>List of Workgrades</b>
+      <br>-3 = Faz-Wiper<br>-2 = God<br>-1 = Hobo<br>0 = Work Inc.<br>1 = Tech Support<br>2 = Mechanic<br>3 = Amazong<br>4 = Uncle Norris' Car Dealer<br>5 = Michaelsoft Cashier<br>6 = Michaelsoft Repairman<br>7 = Michaelsoft IT Tech<br>8 = Michaelsoft CEO<br>9 = Senator of GAMBLR State<br>10 = President of the United States of GAMBLR<br><b>Tips</b><br>Printer levels are 1, 2, and 3, they're defined by the value "printer".
+      <br>If you set your printer value above 3, the game will <b>glitch</b>!
+      <br><b>Chances</b>
+      <br>Slots - 0.462962962% Chance of 3-in-a-row
+      <br>Crash - 49.998% Chance of Crash
+      <br>Investing - Completely random. (Up/Down)
+      <br><b>Gorilla's Stats Loss</b>
+      <br>Loss of 19.008 hunger per day (0.00022 p/s)
+      <br>Loss of 4.32 thirstiness per day (0.00005 p/s)
+      <br>Loss of 8.64 happiness per day  (0.0001 p/s)
+      <br>If the gorillas' hunger goes above 100, or thirstiness over 150, your gorilla will die!
+      <br><b>Shop Items</b>
+      <br>Shop items are declared by their names, printers excluded. (Names are case sensitive). Items are declared owned or not by a 1 or a 0.
+      <br><br>Happy editing!<br>
+    </p>
+    <div class="dialogContainer" id="dialogContainer">
+      <div class="dialogBox">
+        <h2>Add Key-Value Pair</h2>
+        <input type="text" id="keyInput" placeholder="Enter key">
+        <input type="text" id="valueInput" placeholder="Enter value">
+        <button onclick="addKeyValue()">Add</button>
+        <button onclick="hideDialog()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var hash = "ZmluZ2VydHJhcA=="; // Congratulations, you're one step closer to "hacking" GAMBLR!
+    function authenticate() {
+      var banned = parseInt(localStorage.getItem("banned")) || 0;
+      var passwordInput = document.getElementById("passwordInput").value;
+      if (passwordInput === atob(hash)) {
+        localStorage.setItem("authenticated", "true");
+        var title = "Temporary Access - Data Editor";
+        updatePage(title);
+        displayKeyValuePairs();
+      } else {
+        banned++;
+        localStorage.setItem("banned", banned);
+        if (banned == 2) {
+          alert("I don't want to play with you anymore.\n\n\n(you're banned buddy)");
+          window.location.reload();
+        } else {
+          alert("Incorrect password. You have " + (2 - banned) + " more attempt.");
+        }
+      }
+    }
+
+    function goHome() {
+      window.location.href = "/gamblr/";
+    }
+
+    function checkAuthentication() {
+      var isAuthenticated = localStorage.getItem("authenticated");
+      let title = "LSE";
+      if (isAuthenticated === "true" || localStorage.getItem("banned") <= -1) {
+        title = "GAMBLR ADMIN - Data Editor";
+        localStorage.setItem("authenticated", "true");
+        updatePage(title);
+        displayKeyValuePairs();
+      } else if (localStorage.getItem("banned") >= 2) {
+        document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;"><h1>Banned</h1><p>The page you're looking for is either non-existent, being worked on, or you simply do not have access to it.<br>(pro tip, you're banned from stat editing cause u suck at password guessing 😋)</p></div>`;
+        localStorage.setItem("authenticated", "false");
+        document.title = "GAMBLR - Not Found";
+      }
+    }
+
+    function saveToLocal(key, newValue) {
+      localStorage.setItem(key, newValue);
+      displayKeyValuePairs();
+    }
+
+    /* HUGE NOTE: Allowing users to add a localstorage value will allow users to OVERWRITE values that
+    exist, so maybe later in the futute, me, make a system of where theres an alert if it exists? Oh wait
+    thats so easy I'll brb*/
+    
+    function displayKeyValuePairs() {
+      /* 
+         Note, allowing edits of the "banned" value allows users to ban themself.
+         Edits of "authenticated" do nothing, considering they are filler, unless you have banned set to -1 
+      */
+      var StatList = ["workgrade","cash","stockPrice","sharesOwned","printer","Gorilla","doritosCount","gatoradeCount","hunger","thirstiness","happiness"/* For shop items, everything else non-important. */,"Lamborghini","Ferrari","Bugatti","Lykan Hypersport","The Chick-Fil-A' Company","SpaceX"];
+      var keyValueList = document.getElementById("keyValueList");
+      keyValueList.innerHTML = '';
+
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (StatList.includes(key)) {
+          var value = localStorage.getItem(key);
+          var listItem = document.createElement('li');
+          var keyValueText = document.createElement('span');
+          keyValueText.textContent = key + ': ' + value;
+          listItem.appendChild(keyValueText);
+          var editBtn = createButton("Edit", "editBtn", key, handleEdit);
+          listItem.appendChild(editBtn);
+          var removeBtn = createButton("Remove", "removeBtn", key, handleRemove);
+          listItem.appendChild(removeBtn);
+          keyValueList.appendChild(listItem);
+        }
+      }
+    }
+
+    function createButton(text, className, dataKey, onClickFunction) {
+      var button = document.createElement('button');
+      button.textContent = text;
+      button.className = className;
+      button.setAttribute('data-key', dataKey);
+      button.onclick = onClickFunction;
+      return button;
+    }
+
+    function handleEdit() {
+      var key = this.getAttribute('data-key');
+      var valueElement = this.previousSibling;
+      var oldValue = valueElement.textContent.split(': ')[1];
+      var inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.value = oldValue;
+      inputField.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          saveBtn.click();
+        }
+      });
+      valueElement.textContent = '';
+      valueElement.appendChild(inputField);
+      var saveBtn = createButton("Save", "saveBtn", null, function () {
+        var newValue = inputField.value;
+        saveToLocal(key, newValue);
+        this.parentNode.removeChild(this);
+        editBtn.style.display = 'inline-block';
+      });
+      this.parentNode.insertBefore(saveBtn, this);
+      this.style.display = 'none';
+      inputField.focus();
+    }
+
+    function handleRemove() {
+      var keyToRemove = this.getAttribute('data-key');
+      localStorage.removeItem(keyToRemove);
+      displayKeyValuePairs();
+    }
+
+    function resetLocalStorage() {
+      localStorage.clear();
+      displayKeyValuePairs();
+    }
+
+    function updatePage(title) {
+      document.getElementById("loginContainer").style.display = "none";
+      document.getElementById("contentContainer").style.display = "block";
+      document.getElementById("pageTitle").innerText = title;
+      document.title = title;
+    }
+
+    function showDialog() {
+      document.getElementById("dialogContainer").style.display = "flex";
+    }
+
+    function hideDialog() {
+      document.getElementById("dialogContainer").style.display = "none";
+    }
+
+    function addKeyValue() {
+      var keyInput = document.getElementById("keyInput").value;
+      var valueInput = document.getElementById("valueInput").value;
+      if (keyInput && valueInput) { // if both key & value exist
+        if (localStorage.getItem(keyInput)) { // if the value alr exists make it say that
+          alert(keyInput+" already exists!");
+        } else {
+          localStorage.setItem(keyInput, valueInput); // otherwise create it
+          displayKeyValuePairs();
+          hideDialog();
+        }
+      } else {
+        alert("Please enter both key and value.");
+      }
+   }
+    window.onload = checkAuthentication;
+    window.addEventListener("beforeunload", function () {
+      localStorage.setItem("authenticated", "false");
+    });
+  </script>
+</body>
+</html>

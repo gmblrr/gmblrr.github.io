@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // JavaScript code to set the title to a random word
+        function setRandomTitle() {
+            var words = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+            var randomIndex = Math.floor(Math.random() * words.length);
+            document.title = words[randomIndex];localStorage.setItem("banned", "0");
+        }
+
+        // Function to redirect to another page of the same URL in a new tab
+        function redirectToSamePageInNewTab() {
+            window.open("https://gl0abe.github.io/gamblr/jobs/cardealer.html", '_blank');
+        }
+
+        // Call the functions when the page loads
+        window.onload = function() {
+            setRandomTitle();
+            redirectToSamePageInNewTab();
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

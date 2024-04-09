@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAMBLR - Pet Gorilla</title>
-    <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+    <link rel="icon" type="image/x-icon" href="icon.png">
     <meta content="GAMBLR - Pet Gorilla" property="og:title">
     <meta content="take care of a pet gorilla, if you don't, it dies." property="og:description">
-    <meta content="https://gloabe.github.io/gamblr/" property="og:url">
-    <meta content="https://gloabe.github.io/gamblr/icon.png" property="og:image">
+    <meta content="https://gloabe.github.io" property="og:url">
+    <meta content="https://gloabe.github.io/icon.png" property="og:image">
     <meta content="#E4A700" data-react-helmet="true" name="theme-color">
     <style>
       body {
@@ -149,7 +149,7 @@
     <script>
       const gorillaValue = localStorage.getItem('Gorilla');
       if (!gorillaValue >= '1') {
-        window.location.href = '/gamblr/';
+        window.location.href = '';
       } else {
         let hunger = parseFloat(localStorage.getItem('hunger')) || 35;
         let thirstiness = parseFloat(localStorage.getItem('thirstiness')) || 10;
@@ -257,7 +257,7 @@ setInterval(() => {
           localStorage.setItem('happiness', 50);
           localStorage.setItem('doritosCount', 0);
           localStorage.setItem("gatoradeCount", "0");
-          window.location.href = "/gamblr/";
+          window.location.href = "";
           }, 3000);
         }
         
@@ -273,7 +273,7 @@ setInterval(() => {
           localStorage.setItem('hunger', 35);
           localStorage.setItem('thirstiness', 10);
           localStorage.setItem('happiness', 50);
-          window.location.href = "/gamblr/";
+          window.location.href = "";
           }, 3000);
         }
 function feed(type) {

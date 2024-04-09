@@ -1,4 +1,4 @@
-![GAMBLR Icon](/gamblr/icon.png)
+![GAMBLR Icon](/icon.png)
 
 # Welcome to GAMBLR!
 
@@ -14,7 +14,7 @@ Experience the adrenaline rush with our Crash game! Ride the highs and lows as y
 
 ## How to Get Started
 
-1. Visit our website: [GAMBLR](https://https://unfiltering.github.io/gamblr/)
+1. Visit our website: [GAMBLR](https://https://gamblrr.github.io/)
 2. Get a job
 3. Work hard in the word document processing for moolah
 4. Choose your game: Slots or Crash.

@@ -12,7 +12,7 @@
   <meta content="https://gloabe.github.io" property="og:url" />
   <meta content="https://gloabe.github.io/icon.png" property="og:image" />
   <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
-  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+	<script src="//cdn.jsdelivr.net/npm/eruda"></script>
 </head>
 <script>
 document.addEventListener('DOMContentLoaded', async function () {
@@ -126,6 +126,7 @@ if (parseInt(gorilla) >= 1) {
   fanartTile.querySelector('.name').textContent = 'Admin'; // Change name to Admin
   fanartTile.querySelector('.emoji').textContent = '🤵🎰'; // Change emoji to 🤵🎰
   fanartTile.querySelector('a').setAttribute('href', 'js/admin.html'); // Change href to js/admin.html
+  eruda.init(); // for da admins ya get da debeloppa consoele yah
  }
 }
 });

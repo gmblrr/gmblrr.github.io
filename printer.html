@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GAMBLR - Money Printer</title>
-<link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+<link rel="icon" type="image/x-icon" href="icon.png">
 <meta content="GAMBLR - Money Printers" property="og:title" />
 <meta content="print insane amounts of cash in one day, come back the next day and gamble all of it away." property="og:description" />
-<meta content="https://gloabe.github.io/gamblr/" property="og:url" />
-<meta content="https://gloabe.github.io/gamblr/icon.png" property="og:image" />
+<meta content="https://gloabe.github.io" property="og:url" />
+<meta content="https://gloabe.github.io/icon.png" property="og:image" />
 <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
 <style>
   body {
@@ -82,7 +82,7 @@
 <div id="cashDisplay" class="cash">$<span id="cashAmount">0</span></div>
 <div id="moneyPrinter" class="clicker">🖨️</div>
 
-<footer>Done watching your money printer go? Go <a href="/gamblr/">home</a>!</footer>
+<footer>Done watching your money printer go? Go <a href="">home</a>!</footer>
 <script>
   // Function to update the cash display with commas
   function updateCashDisplay(cash) {
@@ -136,7 +136,7 @@
       emoji = "💰💰🖨️💰";
       cashBoost = 5; // Cash boost for level 3
     } else {
-      window.location.href = '/gamblr/';
+      window.location.href = '';
     }
     document.title = title; // Update document title
     document.getElementById('moneyPrinter').textContent = emoji;

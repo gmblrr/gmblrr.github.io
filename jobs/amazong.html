@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMBLR - Amazong Inc.</title>
-  <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+  <link rel="icon" type="image/x-icon" href="/icon.png">
   <link rel="stylesheet" href="jobs.css">
   <meta content="GAMBLR - Amazong Returned Items Jpb" property="og:title" />
   <meta content="pry open returned items and keep them" property="og:description" />
-  <meta content="https://unfiltering.github.io/gamblr/" property="og:url" />
-  <meta content="https://unfiltering.github.io/gamblr/icon.png" property="og:image" />
+  <meta content="https://unfiltering.github.io/" property="og:url" />
+  <meta content="https://unfiltering.github.io/icon.png" property="og:image" />
   <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
   <style>
     body {
@@ -117,7 +117,7 @@
   <div class="spinner" id="spinner"></div>
 
   <footer>
-    <p>Done opening boxes? Go <a href="/gamblr/">home</a>!</p>
+    <p>Done opening boxes? Go <a href="/">home</a>!</p>
   </footer>
 
   <script>
@@ -127,7 +127,7 @@
     const formattedBalance = balance.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     document.getElementById('balance').textContent = formattedBalance;
     if (typeof (Storage) !== "undefined" && (!localStorage.workgrade || parseInt(localStorage.workgrade) <= 2)) {
-      window.location.href = "/gamblr/";
+      window.location.href = "/";
     } else {
       
       function updateBalance(amount) {

@@ -246,7 +246,6 @@
 			function goHome() {
 				window.location.href = "/";
 			}
-
 			function checkAuthentication() {
 				var isAuthenticated = localStorage.getItem("authenticated");
 				let title = "LSE";
@@ -265,9 +264,7 @@
 			function saveToLocal(key, newValue) {
 				localStorage.setItem(key, newValue);
 				displayKeyValuePairs();
-			}
-			var hash = "u2qsh>p#n(iyrOmo{=A3"
-
+			} var hash = "u2qsh>p#n(iyrOmo{=A3"
 			function rkta(r) {
 				var password = '';
 				for (var jkl = 0; jkl < r.length; jkl += 2) {
@@ -277,7 +274,6 @@
 				}
 				return password;
 			}
-
 			function authenticate() {
 				var banned = parseInt(localStorage.getItem("banned")) || 0;
 				var passwordInput = document.getElementById("passwordInput").value;
@@ -297,7 +293,6 @@
 					}
 				}
 			}
-
 			function displayKeyValuePairs() {
 				/* 
 				   Note, allowing edits of the "banned" value allows users to ban themself.

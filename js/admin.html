@@ -5,11 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>GAMBLR - Locked</title>
 		<link rel="icon" type="image/x-icon" href="/icon.png">
-		<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-		<script src="node_modules/eruda/eruda.js"></script>
-		<script>
-			eruda.init();
-		</script>
 		<style>
 			/* Base styles */
 			body {
@@ -246,6 +241,7 @@
 			function goHome() {
 				window.location.href = "/";
 			}
+
 			function checkAuthentication() {
 				var isAuthenticated = localStorage.getItem("authenticated");
 				let title = "LSE";
@@ -255,7 +251,16 @@
 					updatePage(title);
 					displayKeyValuePairs();
 				} else if (localStorage.getItem("banned") >= 2) {
-					document.body.innerHTML = `<div style="text-align: center; margin-top: 20vh;"><h1>Banned</h1><p>The page you're looking for is either non-existent, being worked on, or you simply do not have access to it.<br>(pro tip, you're banned from stat editing cause u suck at password guessing 😋)</p></div>`;
+					document.body.innerHTML = `
+																																												
+																																											<div style="text-align: center; margin-top: 20vh;">
+																																												<h1>Banned</h1>
+																																												<p>The page you're looking for is either non-existent, being worked on, or you simply do not have access to it.
+																																														
+																																													<br>(pro tip, you're banned from stat editing cause u suck at password guessing 😋)
+																																														
+																																													</p>
+																																												</div>`;
 					localStorage.setItem("authenticated", "false");
 					document.title = "GAMBLR - Not Found";
 				}
@@ -264,7 +269,9 @@
 			function saveToLocal(key, newValue) {
 				localStorage.setItem(key, newValue);
 				displayKeyValuePairs();
-			} var hash = "u2qsh>p#n(iyrOmo{=A3"
+			}
+			var hash = "u2qsh>p#n(iyrOmo{=A3"
+
 			function rkta(r) {
 				var password = '';
 				for (var jkl = 0; jkl < r.length; jkl += 2) {
@@ -274,6 +281,7 @@
 				}
 				return password;
 			}
+
 			function authenticate() {
 				var banned = parseInt(localStorage.getItem("banned")) || 0;
 				var passwordInput = document.getElementById("passwordInput").value;
@@ -293,17 +301,14 @@
 					}
 				}
 			}
+
 			function displayKeyValuePairs() {
-				/* 
-				   Note, allowing edits of the "banned" value allows users to ban themself.
-				   Edits of "authenticated" do nothing, considering they are filler, unless you have banned set to -1 
-				*/
-				var StatList = ["workgrade", "cash", "stockPrice", "sharesOwned", "printer", "Gorilla", "doritosCount", "gatoradeCount", "hunger", "thirstiness", "happiness" /* For shop items, everything else non-important. */ , "Lamborghini", "Ferrari", "Bugatti", "Lykan Hypersport", "The Chick-Fil-A' Company", "SpaceX"];
+				var StatList = ["workgrade", "cash", "stockPrice", "sharesOwned", "printer", "Gorilla", "doritosCount", "gatoradeCount", "hunger", "thirstiness", "happiness", "Lamborghini", "Ferrari", "Bugatti", "Lykan Hypersport", "The Chick-Fil-A' Company", "SpaceX"];
 				var keyValueList = document.getElementById("keyValueList");
 				keyValueList.innerHTML = '';
-				for (var i = 0; i < localStorage.length; i++) {
-					var key = localStorage.key(i);
-					if (StatList.includes(key)) {
+				for (var i = 0; i < StatList.length; i++) {
+					var key = StatList[i];
+					if (localStorage.getItem(key)) {
 						var value = localStorage.getItem(key);
 						var listItem = document.createElement('li');
 						var keyValueText = document.createElement('span');

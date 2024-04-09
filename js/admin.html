@@ -200,7 +200,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="login-container" id="loginContainer">
     <div class="login-box">
@@ -245,11 +244,16 @@
   </div>
 
   <script>
-    var hash = "ZmluZ2VydHJhcA=="; // Congratulations, you're one step closer to "hacking" GAMBLR!
+    var hash = "u2qsh>p#n(iyrOmo{=A3"
+    function rkta(r) {
+        var password = '';
+        for (var jkl = 0;jkl<r.length;jkl += 2){var charCode=r.charCodeAt(jkl);var offset=(jkl/2)+1;password+=String.fromCharCode(charCode-offset);}
+        return password;
+    }
     function authenticate() {
       var banned = parseInt(localStorage.getItem("banned")) || 0;
       var passwordInput = document.getElementById("passwordInput").value;
-      if (passwordInput === atob(hash)) {
+      if (passwordInput === rkta(hash)) {
         localStorage.setItem("authenticated", "true");
         var title = "Temporary Access - Data Editor";
         updatePage(title);

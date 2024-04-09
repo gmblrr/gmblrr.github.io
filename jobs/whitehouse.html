@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMBLR - White House</title>
-  <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+  <link rel="icon" type="image/x-icon" href="/icon.png">
   <meta content="GAMBLR - The White House" property="og:title" />
   <meta content="Work at the White House, then gamble the presidential funds away" property="og:description" />
-  <meta content="https://unfiltering.github.io/gamblr/" property="og:url" />
-  <meta content="https://unfiltering.github.io/gamblr/icon.png" property="og:image" />
+  <meta content="https://unfiltering.github.io/" property="og:url" />
+  <meta content="https://unfiltering.github.io/icon.png" property="og:image" />
   <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
   <style>
     body {
@@ -80,13 +80,13 @@
     <div class="clicker" id="moji" onclick="incrementCash()">💼🤵</div>
   </div>
   <footer>
-    <p id="quote">Done voting on things? Go <a href="/gamblr/">home</a> and gamble it all away!</p>
+    <p id="quote">Done voting on things? Go <a href="/">home</a> and gamble it all away!</p>
   </footer>
   <script>
     var workgrade = localStorage.getItem("workgrade") || 0; // Initialize workgrade with a default value
     var cash = localStorage.getItem("cash") || 0; // Initialize cash with a default value
     if (!(workgrade >= 9)) {
-      window.location.href = "/gamblr/";
+      window.location.href = "/";
     } else {
       function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min)
@@ -125,7 +125,7 @@
       if (workgrade === "10") {
         document.querySelector("h1").textContent = "President of the United States of GAMBLR";
         document.getElementById("moji").textContent = "🇺🇸🤵";
-        document.getElementById("quote").innerHTML = `Done being important? Go <a href="/gamblr/">home</a> and gamble all your cash away!`;
+        document.getElementById("quote").innerHTML = `Done being important? Go <a href="/">home</a> and gamble all your cash away!`;
         document.getElementById("cash-display").textContent = "$" + numberWithCommas(cash);
       }
     }

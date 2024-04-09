@@ -118,6 +118,13 @@ if (parseInt(gorilla) >= 1) {
   var slotsTile = document.querySelector('.tile:nth-child(4)'); // Change to 3rd tile
   slotsTile.parentNode.insertBefore(gorillaTile, slotsTile.nextSibling);
  }
+
+  if (banned === '-1') { // Check if banned === '-1'
+    var fanartTile = document.querySelector('.tile:nth-child(1)'); // Select the Fanart tile
+    fanartTile.querySelector('.name').textContent = 'Admin'; // Change name to Admin
+    fanartTile.querySelector('.emoji').textContent = '🤵🎰'; // Change emoji to 🤵🎰
+    fanartTile.querySelector('a').setAttribute('href', 'js/admin.html'); // Change href to js/admin.html
+  }
 } 
 });
 

@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', async function () {
   var cash = localStorage.getItem('cash');
   var banned = localStorage.getItem('banned') || 0;
     // stop this is so ugly whyyyy ughhhh ^^^^^^
-  if (cash && workgrade) {
+  if (cash) {
     var formattedCash = parseFloat(cash).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     cashDisplay.textContent = '$' + formattedCash; // Add dollar sign
-  } else {
-    localStorage.setItem('cash', 0);
+  } else {localStorage.setItem('cash', 0);}
+  if (!workgrade) {
     localStorage.setItem('workgrade', -1);
     workgrade = -1; 
     alert("\nHi!\n\nRecently, I was a bit irresponsible and gave everyone I knew the password to GAMBLR's built in Admin Stat Editor™️©️. With this new website, gamblrr.github.io, it reset everyones data!\n\nBasically, data reset, I'm no longer giving you the password.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLook up")

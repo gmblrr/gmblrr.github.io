@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   var gorilla = localStorage.getItem('Gorilla');
   var printer = localStorage.getItem('printer');
   var cash = localStorage.getItem('cash');
+  var banned = localStorage.getItem('banned') || 0;
     // stop this is so ugly whyyyy ughhhh ^^^^^^
   if (cash && workgrade) {
     var formattedCash = parseFloat(cash).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -119,13 +120,13 @@ if (parseInt(gorilla) >= 1) {
   slotsTile.parentNode.insertBefore(gorillaTile, slotsTile.nextSibling);
  }
 
-  if (banned === '-1') { // Check if banned === '-1'
-    var fanartTile = document.querySelector('.tile:nth-child(1)'); // Select the Fanart tile
-    fanartTile.querySelector('.name').textContent = 'Admin'; // Change name to Admin
-    fanartTile.querySelector('.emoji').textContent = '🤵🎰'; // Change emoji to 🤵🎰
-    fanartTile.querySelector('a').setAttribute('href', 'js/admin.html'); // Change href to js/admin.html
-  }
-} 
+ if (banned === '-1') { // Check if banned === '-1'
+  var fanartTile = document.querySelector('.tile:nth-child(1)'); // Select the Fanart tile
+  fanartTile.querySelector('.name').textContent = 'Admin'; // Change name to Admin
+  fanartTile.querySelector('.emoji').textContent = '🤵🎰'; // Change emoji to 🤵🎰
+  fanartTile.querySelector('a').setAttribute('href', 'js/admin.html'); // Change href to js/admin.html
+ }
+}
 });
 
 var sequence = '';

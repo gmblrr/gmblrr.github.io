@@ -3,12 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAMBLR - FazWipe</title>
-    <link rel="icon" type="image/x-icon" href="/gamblr/icon.png">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
     <link rel="stylesheet" href="jobs.css">
     <meta content="GAMBLR - FazWipe" property="og:title" />
     <meta content="GAMBLE ON IF YOUR ASS IS CLEAN OR NOT 🔥" property="og:description" />
-    <meta content="https://unfiltering.github.io/gamblr/games/fazwipe" property="og:url" />
-    <meta content="https://unfiltering.github.io/gamblr/icon.png" property="og:image" />
+    <meta content="https://unfiltering.github.io/games/fazwipe" property="og:url" />
+    <meta content="https://unfiltering.github.io/icon.png" property="og:image" />
     <meta content="#E4A700" data-react-helmet="true" name="theme-color" />
     <style>
       body {
@@ -119,14 +119,14 @@
       <p id="result"></p>
     </div>
     <!-- Footer -->
-    <footer> Done wiping your ass? <a href="/gamblr/">Go home!</a>
+    <footer> Done wiping your ass? <a href="/">Go home!</a>
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         // Function to format cash with commas
         const workgrade = localStorage.getItem('workgrade');
         if (!(workgrade <= '-3')) {
-          window.location.href = '/gamblr/';
+          window.location.href = '/';
         } else {
           function formatCash(amount) {
             return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

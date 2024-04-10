@@ -149,7 +149,7 @@
     <script>
       const gorillaValue = localStorage.getItem('Gorilla');
       if (!gorillaValue >= '1') {
-        window.location.href = '';
+        window.location.href = '/';
       } else {
         let hunger = parseFloat(localStorage.getItem('hunger')) || 35;
         let thirstiness = parseFloat(localStorage.getItem('thirstiness')) || 10;
@@ -257,7 +257,7 @@ setInterval(() => {
           localStorage.setItem('happiness', 50);
           localStorage.setItem('doritosCount', 0);
           localStorage.setItem("gatoradeCount", "0");
-          window.location.href = "";
+          window.location.href = "/";
           }, 3000);
         }
         
@@ -273,7 +273,7 @@ setInterval(() => {
           localStorage.setItem('hunger', 35);
           localStorage.setItem('thirstiness', 10);
           localStorage.setItem('happiness', 50);
-          window.location.href = "";
+          window.location.href = "/";
           }, 3000);
         }
 function feed(type) {

@@ -66,6 +66,7 @@
      // Check if the stock price exceeds 250
      if (stockPrice > 250) {
          stockPrice -= 100; // Subtract 100 from the stock price
+         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
      }
 
      if (stockPrice < 0) {

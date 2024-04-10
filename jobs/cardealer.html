@@ -91,10 +91,9 @@
       function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min)
       }
-
       function incrementCash() {
         if (typeof (Storage) !== "undefined") {
-          var randomValue = randomIntFromInterval(1,13)
+          var randomValue = randomIntFromInterval(1,14)
           if (localStorage.cash) {
             localStorage.cash = parseInt(localStorage.cash) + randomValue;
           } else {

@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 if (SITE_DISABLED == 1) {
   alert("As of right now crash is not working. Will fix by tommorow. Sorry!\nFor now, here's a funny game.");
-  window.location.href = "/gamblr/games/fazwipe/";
+  window.location.href = "/games/fazwipe/";
 }
 
 function initialize() {
   const rocket = document.getElementById('rocket');
   updateCashDisplay();
-  rocket.style.backgroundImage = "url('/gamblr/images/rocket.png')";
+  rocket.style.backgroundImage = "url('/images/rocket.png')";
   document.getElementById('bet-button').addEventListener('click', placeBet);
 }
 
@@ -37,7 +37,7 @@ function resetRocket() {
 
   setTimeout(() => {
     rocket.style.transition = 'none';
-    rocket.style.backgroundImage = "url('/gamblr/images/rocket.png')";
+    rocket.style.backgroundImage = "url('/images/rocket.png')";
     rocket.style.bottom = '0';
     rocket.style.left = '0';
     rocket.offsetHeight;
@@ -95,7 +95,7 @@ function placeBet() {
 
     if (crashChance < CRASH_CHANCE) {
       displayResult(`💥 The rocket exploded. You lost $${betAmount.toLocaleString()}!`);
-      rocket.style.backgroundImage = "url('/gamblr/images/boom.png')";
+      rocket.style.backgroundImage = "url('/images/boom.png')";
       setTimeout(resetRocket, 1000);
       cashValue -= betAmount; // Deduct bet amount from cash
     } else {

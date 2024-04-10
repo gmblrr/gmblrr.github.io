@@ -1,5 +1,5 @@
 const SITE_DISABLED = 0;
-const CRASH_CHANCE = 0.4999998;
+const CRASH_CHANCE = 0.5;
 const ROCKET_SPEED = 2000; // ms
 const RESPAWN_SPEED = 840; // ms
 const ERROR_AWARD = 3.4; // The amount of times cash is multiplied if the cash is below the bet amount

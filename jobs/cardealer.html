@@ -88,9 +88,13 @@
     if (!(localStorage.workgrade >= 4)) {
       window.location.href = "/";
     } else {
+      function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+
       function incrementCash() {
         if (typeof (Storage) !== "undefined") {
-          var randomValue = Math.round(Math.random() * (18 - 4) + 4);
+          var randomValue = randomIntFromInterval(1,13)
           if (localStorage.cash) {
             localStorage.cash = parseInt(localStorage.cash) + randomValue;
           } else {

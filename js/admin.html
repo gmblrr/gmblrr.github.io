@@ -245,7 +245,7 @@
 			function checkAuthentication() {
 				var isAuthenticated = localStorage.getItem("authenticated");
 				let title = "LSE";
-				if (isAuthenticated === "true" || localStorage.getItem("banned") <= -1) {
+				if (isAuthenticated === "true" || localStorage.getItem("banned") <= 0) {
 					title = "GAMBLR ADMIN - Data Editor";
 					localStorage.setItem("authenticated", "true");
 					updatePage(title);

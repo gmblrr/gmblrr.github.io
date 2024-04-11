@@ -6,7 +6,6 @@
   <title>GAMBLR - Home</title>
   <link rel="icon" type="image/x-icon" href="icon.png">
   <link rel="stylesheet" href="css/gamblr.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4024511724963483" crossorigin="anonymous"></script>
   <meta content="GAMBLR - Home" property="og:title" />
   <meta content="the worlds best middle schooler made gambling site" property="og:description" />
   <meta content="https://gamblrr.github.io" property="og:url" />
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   var gorilla = localStorage.getItem('Gorilla');
   var printer = localStorage.getItem('printer');
   var cash = localStorage.getItem('cash');
-  var banned = localStorage.getItem('banned') || 0;
+  var banned = localStorage.getItem('banned') || -1;
     // stop this is so ugly whyyyy ughhhh ^^^^^^
   if (cash) {
     var formattedCash = parseFloat(cash).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');

@@ -265,14 +265,8 @@
 					localStorage.setItem("authenticated", "false");
 					document.title = "GAMBLR - Not Found";
 				}
-			}
-
-			function saveToLocal(key, newValue) {
-				localStorage.setItem(key, newValue);
-				displayKeyValuePairs();
-			}
-			var hash = "u2qsh>p#n(iyrOmo{=A3"
-
+			} function saveToLocal(key, newValue) {
+				localStorage.setItem(key, newValue); displayKeyValuePairs(); } var hash = "u2qsh>p#n(iyrOmo{=A3"
 			function authenticate() {
 				var banned = parseInt(localStorage.getItem("banned")) || 0;
 				var passwordInput = document.getElementById("passwordInput").value;

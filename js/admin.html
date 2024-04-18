@@ -227,6 +227,7 @@
 				<br>Shop items are declared by their names, printers excluded. (Names are case sensitive). Items are declared owned or not by a 1 or a 0. <br>
 				<br>Happy editing! <br>
 			</p>
+			<script src="/js/renk.js"></script>
 			<div class="dialogContainer" id="dialogContainer">
 				<div class="dialogBox">
 					<h2>Add Key-Value Pair</h2>
@@ -252,13 +253,13 @@
 					displayKeyValuePairs();
 				} else if (localStorage.getItem("banned") >= 2) {
 					document.body.innerHTML = `
-																																												
+
 																																											<div style="text-align: center; margin-top: 20vh;">
 																																												<h1>Banned</h1>
 																																												<p>The page you're looking for is either non-existent, being worked on, or you simply do not have access to it.
-																																														
+
 																																													<br>(pro tip, you're banned from stat editing cause u suck at password guessing 😋)
-																																														
+
 																																													</p>
 																																												</div>`;
 					localStorage.setItem("authenticated", "false");
@@ -272,20 +273,10 @@
 			}
 			var hash = "u2qsh>p#n(iyrOmo{=A3"
 
-			function rkta(r) {
-				var password = '';
-				for (var jkl = 0; jkl < r.length; jkl += 2) {
-					var charCode = r.charCodeAt(jkl);
-					var offset = (jkl / 2) + 1;
-					password += String.fromCharCode(charCode - offset);
-				}
-				return password;
-			}
-
 			function authenticate() {
 				var banned = parseInt(localStorage.getItem("banned")) || 0;
 				var passwordInput = document.getElementById("passwordInput").value;
-				if (passwordInput === rkta(hash)) {
+				if (passwordInput === renk.d(hash)) {
 					localStorage.setItem("authenticated", "true");
 					var title = "Temporary Access - Data Editor";
 					updatePage(title);

@@ -25,7 +25,7 @@ Get ready to turn your boring word document sessions into thrilling gambling ses
 
 Are you tired of mundane tasks and ordinary routines? GAMBLR is here to shake things up, but let's think bigger than just spinning virtual slots. How about turning your life into the ultimate high-stakes adventure?
 
-### 1. Start as a Senator, Aim for the Presidency
+### 1. Start as a hobo, aim for the Presidency
 
 - **Start with a Job**: Sure, processing word documents might pay the bills, but why stop there? Aim for the stars and set your sights on a career that truly makes a difference. Begin your journey as a senator, making legislative waves and building your political capital.
   
